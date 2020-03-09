@@ -6,20 +6,14 @@ Created on Mon Mar  9 15:52:02 2020
 """
 
 import random as rd
-import numpy as nd
+import numpy as np
 
-Nb_arrets = 7
+##### Définitions des classes et fonctions #####
 
 class Arret:
     def __init__(self):
         self.x = rd.uniform(-10,10)
         self.y = rd.uniform(-10,10)
-
-Arrets = []
-for i in range(Nb_arrets):
-    Arrets.append(Arret())
-
-Gare_centrale = rd.choice(Arrets)
 
 def D_build(Arrets):
     D = np.zeros([Nb_arrets, Nb_arrets])
@@ -29,4 +23,15 @@ def D_build(Arrets):
             D[j,i] = D[i,j]
     return D
 
-D = D_build(Arrets)
+##### Corps #####
+
+
+Nb_arrets = 7
+
+Arrets = []
+for i in range(Nb_arrets):
+    Arrets.append(Arret())
+
+r_m = rd.choice(Arrets)     # Arrêt principal
+D = D_build(Arrets)         # Matrice des distances entre les arrêts i et j
+v = 7                       # Vitesse moyenne des bus (m/s)
