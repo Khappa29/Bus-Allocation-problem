@@ -3,6 +3,10 @@
 Created on Mon Mar  9 15:52:02 2020
 
 @author: vinch
+
+A faire: 
+
+
 """
 
 import random as rd
@@ -40,20 +44,17 @@ c = 2                       # Temps nécessaire pour changer de bus (corresponda
 
 ##### Affichage #####
 
-def display_arret(a):
-    plt.plot(a.x,a.y, 'o')
 
-def display_track(track):
-    X = [track[i].x for i in range(len(track))]
-    Y = [track[i].y for i in range(len(track))]
+def display_arrets(arrets):
+    X = [arrets[i].x for i in range(len(arrets))]
+    Y = [arrets[i].y for i in range(len(arrets))]
     plt.plot(X,Y)
 
 
 
-for a in test:
-    display_arret(a)
 
-display_track(Arrets)
+
+display_arrets(Arrets)
 
 
 plt.grid()
