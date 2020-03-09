@@ -28,6 +28,14 @@ def D_build(Arrets):
             D[j,i] = D[i,j]
     return D
 
+def T_build(Arrets):
+    T = np.zeros([Nb_arrets, Nb_arrets])
+    for i in range(Nb_arrets):
+        for j in range(Nb_arrets):
+            if i != j :
+                T[i,j] = int(rd.uniform(0,11))
+    return T
+
 ##### Corps #####
 
 Nb_arrets = 7
