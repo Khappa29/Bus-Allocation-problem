@@ -6,7 +6,8 @@ Created on Mon Mar  9 15:52:02 2020
 """
 
 import random as rd
-import numpy as nd
+import numpy as np
+import matplotlib.pyplot as plt
 
 Nb_arrets = 7
 
@@ -30,3 +31,31 @@ def D_build(Arrets):
     return D
 
 D = D_build(Arrets)
+
+
+
+def display_arret(a):
+    plt.plot(a.x,a.y, 'o')
+
+def display_track(track):
+    X = [track[i].x for i in range(len(track))]
+    Y = [track[i].y for i in range(len(track))]
+    plt.plot(X,Y)
+
+
+test = [Arret() for i in range(5)]
+
+for a in test:
+    display_arret(a)
+
+display_track(test)
+
+
+plt.grid()
+plt.show()
+
+
+
+
+
+
