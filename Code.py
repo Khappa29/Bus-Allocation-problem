@@ -21,11 +21,13 @@ class Arret:
         self.y = rd.uniform(-10,10)
 
 def D_build(Arrets):
+    Nb_arrets = len(Arrets)
     D = np.zeros([Nb_arrets, Nb_arrets])
     for i in range(Nb_arrets):
         for j in range(i, Nb_arrets):
             D[i,j] = np.sqrt(abs(Arrets[i].x - Arrets[j].x)**2 + abs(Arrets[i].y - Arrets[j].y)**2)
             D[j,i] = D[i,j]
+    D = np.array(D).tolist()
     return D
 
 def T_build(Arrets):
