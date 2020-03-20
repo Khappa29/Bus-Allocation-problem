@@ -50,6 +50,35 @@ v = 7                       # Vitesse moyenne des bus (m/s)
 f = 10                      # Fréquence des bus (bus/heure)
 c = 2                       # Temps nécessaire pour changer de bus (correspondance), en minutes
 
+##### Lignes #####
+
+Nb_lignes = rd.randint(2,Nb_arrets-1)     # On veut au moins deux arrêts par lignes, sachant que toutes doivent passer par la gare centrale
+print("On choisi de créer",Nb_lignes,"lignes.")
+
+Lignes = []
+Arrets_dispo.remove(r_m)
+Nb_arrets_dispo = len(Arrets_dispo)
+
+for i in range(1,Nb_lignes+1):
+    print()
+    print("--- Construction d'une ligne ---")
+    if i != Nb_lignes :
+        Nb_arrets_ligne = rd.randint(1,Nb_arrets_dispo-(Nb_lignes-i))
+        arrets_ligne = [r_m]                        # On ajoute forcement la gare centrale
+        for j in range(Nb_arrets_ligne):
+            arret = rd.choice(Arrets_dispo)
+            Arrets_dispo.remove(arret)
+            arrets_ligne.append(arret)
+    else : 
+        arrets_ligne = [r_m] + Arrets_dispo         # On fait la dernière ligne avec les arrêts restants
+        
+    Lignes.append(Ligne(arrets_ligne))
+        
+    print("La ligne créée est :", Lignes[i-1])
+    Nb_arrets_dispo = len(Arrets_dispo)
+    Lignes[i-1].ordonner_arrets()
+    print("Après arrangement, on a la ligne :", Lignes[i-1])
+
 ##### Affichage #####
 
 
