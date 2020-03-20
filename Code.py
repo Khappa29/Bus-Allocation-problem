@@ -36,6 +36,21 @@ def T_build(Arrets):
                 T[i,j] = int(rd.uniform(0,11))
     return T
 
+##### Arrêts #####
+
+Arrets = []
+Arrets_dispo = []
+
+Nb_arrets = rd.randint(5,10)
+print("On choisi de créer",Nb_arrets,"arrêts.")
+for i in range(Nb_arrets):
+    arret = Arret()
+    Arrets.append(arret)
+    Arrets_dispo.append(arret)
+
+r_m = rd.choice(Arrets)     # Arrêt principal
+r_m.set_Gare_Centrale()
+
 ##### Corps #####
 
 Nb_arrets = 7
