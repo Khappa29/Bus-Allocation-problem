@@ -36,16 +36,13 @@ def T_build(Arrets):
                 T[i,j] = int(rd.uniform(0,11))
     return T
 
-##### Corps #####
+##### Construction des tableaux et constantes #####
 
-Nb_arrets = 7
-
-Arrets = []
-for i in range(Nb_arrets):
-    Arrets.append(Arret())
-
-r_m = rd.choice(Arrets)     # Arrêt principal
 D = D_build(Arrets)         # Matrice des distances entre les arrêts i et j
+T = T_build(Arrets)         # Matrice des nb de personnes en attente à l’arrêt i ayant l’arrêt j pour destination
+#print("D :", D)
+#print("T :", T)
+
 v = 7                       # Vitesse moyenne des bus (m/s)
 f = 10                      # Fréquence des bus (bus/heure)
 c = 2                       # Temps nécessaire pour changer de bus (correspondance), en minutes
