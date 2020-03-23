@@ -116,6 +116,30 @@ def D_build(Arrets):
     D = np.array(D).tolist()
     return D
 
+def T_build(Arrets):
+    T = np.zeros([Nb_arrets, Nb_arrets])
+    for i in range(Nb_arrets):
+        for j in range(Nb_arrets):
+            if i != j :
+                T[i,j] = int(rd.uniform(0,11))
+    return T
+
+##### Arrêts #####
+
+Arrets = []
+Arrets_dispo = []
+
+Nb_arrets = rd.randint(5,10)
+print("On choisi de créer",Nb_arrets,"arrêts.")
+for i in range(Nb_arrets):
+    arret = Arret()
+    Arrets.append(arret)
+    Arrets_dispo.append(arret)
+
+r_m = rd.choice(Arrets)     # Arrêt principal
+r_m.set_Gare_Centrale()
+
+
 ##### Corps #####
 
 
