@@ -11,7 +11,10 @@ A faire:
 
 import random as rd
 import numpy as np
+
+
 import matplotlib.pyplot as plt
+
 
 ##### Définitions des classes et fonctions #####
 
@@ -30,6 +33,7 @@ class Arret:
     def set_coor (self,x,y):
         self.x = x
         self.y = y
+
 
 class Ligne:
     def __init__(self, arrets_ligne):
@@ -101,6 +105,7 @@ class Ligne:
             arrets_ord.append(self.arrets[i-1])
         self.arrets = arrets_ord
 
+
 def D_build(Arrets):
     Nb_arrets = len(Arrets)
     D = np.zeros([Nb_arrets, Nb_arrets])
@@ -111,6 +116,19 @@ def D_build(Arrets):
     D = np.array(D).tolist()
     return D
 
+##### Corps #####
+
+
+Nb_arrets = 7
+
+Arrets = []
+for i in range(Nb_arrets):
+    Arrets.append(Arret())
+
+r_m = rd.choice(Arrets)     # Arrêt principal
+D = D_build(Arrets)         # Matrice des distances entre les arrêts i et j
+v = 7                       # Vitesse moyenne des bus (m/s)
+=======
 def T_build(Arrets):
     T = np.zeros([Nb_arrets, Nb_arrets])
     for i in range(Nb_arrets):
